@@ -1,3 +1,35 @@
+*This is a clone of the Python source code to experiment on translating
+the language.*
+
+Why?
+====
+
+I'm trying this to make easy for people that doesn't speak english to
+learn a programming language.
+
+Please dont tell me that if someone wants to learn a programming
+language he needs to first learn english because this means that you
+are assuming that learning a language is easy and possible but for
+some people is *not* a choice.
+
+Also I'm having fun and learning about Python code it self.
+
+What?
+=====
+
+I'm replacing the builtins like ``any`` and ``isinstance`` by the
+corresponding spanish word. Also I want to to replace grammar like
+``True`` or ``while`` but I still need to try.
+
+How?
+====
+
+From my first attempt I know that I need to change the strings
+contained in ``Python/bltinmodule.c`` and then update the the .py
+files that are used to build python binary that use this builtins.
+
+From now on is the original README.
+
 This is Python version 3.4.0 prerelease
 =======================================
 
@@ -49,7 +81,7 @@ example:
 
 
 What's New
-----------
+p----------
 
 We try to have a comprehensive overview of the changes in the "What's New in
 Python 3.4" document, found at
