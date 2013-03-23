@@ -28,6 +28,14 @@ From my first attempt I know that I need to change the strings
 contained in ``Python/bltinmodule.c`` and then update the the .py
 files that are used to build python binary that use this builtins.
 
+Try it now
+==========
+
+    $ git clone git://github.com/alej0varas/pythones.git
+    $ bash change_language.sh
+    $ ./python
+    >>> alguno([0, 1])
+
 From now on is the original README.
 
 This is Python version 3.4.0 prerelease
