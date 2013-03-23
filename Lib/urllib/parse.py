@@ -355,7 +355,7 @@ def urlsplit(url, scheme='', allow_fragments=True):
             # make sure "url" is not actually a port number (in which case
             # "scheme" is really part of the path)
             rest = url[i+1:]
-            if not rest or alguno(c not in '0123456789' for c in rest):
+            if not rest or any(c not in '0123456789' for c in rest):
                 # not a port number
                 scheme, url = url[:i].lower(), rest
 

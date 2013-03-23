@@ -360,7 +360,7 @@ class Morsel(dict):
         # Second we make sure it only contains legal characters
         if key.lower() in self._reserved:
             raise CookieError("Attempt to set a reserved key: %s" % key)
-        if alguno(c not in LegalChars for c in key):
+        if any(c not in LegalChars for c in key):
             raise CookieError("Illegal key value: %s" % key)
 
         # It's a good key, so save it.

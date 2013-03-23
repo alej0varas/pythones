@@ -259,7 +259,7 @@ def wait(fs, timeout=None, return_when=ALL_COMPLETED):
         if (return_when == FIRST_COMPLETED) and done:
             return DoneAndNotDoneFutures(done, not_done)
         elif (return_when == FIRST_EXCEPTION) and done:
-            if alguno(f for f in done
+            if any(f for f in done
                    if not f.cancelled() and f.exception() is not None):
                 return DoneAndNotDoneFutures(done, not_done)
 

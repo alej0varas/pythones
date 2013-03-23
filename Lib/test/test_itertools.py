@@ -885,7 +885,7 @@ class TestBasicOps(unittest.TestCase):
             if n == 0:
                 yield ()
                 return
-            if alguno(len(pool) == 0 for pool in pools):
+            if any(len(pool) == 0 for pool in pools):
                 return
             indices = [0] * n
             yield tuple(pool[i] for pool, i in zip(pools, indices))
@@ -1270,7 +1270,7 @@ class TestBasicOps(unittest.TestCase):
     # Issue 13454: Crash when deleting backward iterator from tee()
     def test_tee_del_backward(self):
         forward, backward = tee(repeat(None, 20000000))
-        alguno(forward)  # exhaust the iterator
+        any(forward)  # exhaust the iterator
         del backward
 
     def test_StopIteration(self):

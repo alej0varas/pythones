@@ -3,7 +3,7 @@
 # Copyright 2001-2012 by Vinay Sajip. All Rights Reserved.
 #
 # Permission to use, copy, modify, and distribute this software and its
-# documentation for alguno purpose and without fee is hereby granted,
+# documentation for any purpose and without fee is hereby granted,
 # provided that the above copyright notice appear in all copies and that
 # both that copyright notice and this permission notice appear in
 # supporting documentation, and that the name of Vinay Sajip
@@ -3706,7 +3706,7 @@ class LoggerTest(BaseTest):
         self.assertIsNot(root, logging.getLogger('foo.bar').parent)
 
     def test_invalid_names(self):
-        self.assertRaises(TypeError, logging.getLogger, alguno)
+        self.assertRaises(TypeError, logging.getLogger, any)
         self.assertRaises(TypeError, logging.getLogger, b'foo')
 
 
@@ -3957,7 +3957,7 @@ class NTEventLogHandlerTest(BaseTest):
         self.assertTrue(found, msg=msg)
 
 # Set the locale to the platform-dependent default.  I have no idea
-# why the test does this, but in alguno case we save the current locale
+# why the test does this, but in any case we save the current locale
 # first and restore it at the end.
 @run_with_locale('LC_ALL', '')
 def test_main():

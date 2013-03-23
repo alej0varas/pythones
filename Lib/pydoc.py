@@ -231,10 +231,10 @@ def synopsis(filename, cache={}):
             return None
         binary_suffixes = importlib.machinery.BYTECODE_SUFFIXES[:]
         binary_suffixes += importlib.machinery.EXTENSION_SUFFIXES[:]
-        if alguno(filename.endswith(x) for x in binary_suffixes):
+        if any(filename.endswith(x) for x in binary_suffixes):
             # binary modules have to be imported
             file.close()
-            if alguno(filename.endswith(x) for x in
+            if any(filename.endswith(x) for x in
                     importlib.machinery.BYTECODE_SUFFIXES):
                 loader = importlib.machinery.SourcelessFileLoader('__temp__',
                                                                   filename)
@@ -974,7 +974,7 @@ class HTMLDoc(Doc):
         modpkgs = []
         if shadowed is None: shadowed = {}
         for importer, name, ispkg in pkgutil.iter_modules([dir]):
-            if alguno((0xD800 <= ord(ch) <= 0xDFFF) for ch in name):
+            if any((0xD800 <= ord(ch) <= 0xDFFF) for ch in name):
                 # ignore a module if its name contains a surrogate character
                 continue
             modpkgs.append((name, '', ispkg, name in shadowed))

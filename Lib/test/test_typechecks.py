@@ -8,13 +8,13 @@ class ABC(type):
 
     def __instancecheck__(cls, inst):
         """Implement isinstance(inst, cls)."""
-        return alguno(cls.__subclasscheck__(c)
+        return any(cls.__subclasscheck__(c)
                    for c in {type(inst), inst.__class__})
 
     def __subclasscheck__(cls, sub):
         """Implement issubclass(sub, cls)."""
         candidates = cls.__dict__.get("__subclass__", set()) | {cls}
-        return alguno(c in candidates for c in sub.mro())
+        return any(c in candidates for c in sub.mro())
 
 
 class Integer(metaclass=ABC):

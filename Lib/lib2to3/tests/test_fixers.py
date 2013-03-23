@@ -3028,7 +3028,7 @@ class Test_filter(FixerTestCase):
         self.unchanged(a)
         a = """tuple(filter(f, 'abc'))"""
         self.unchanged(a)
-        a = """alguno(filter(f, 'abc'))"""
+        a = """any(filter(f, 'abc'))"""
         self.unchanged(a)
         a = """all(filter(f, 'abc'))"""
         self.unchanged(a)
@@ -3140,7 +3140,7 @@ class Test_map(FixerTestCase):
         self.unchanged(a)
         a = """tuple(map(f, 'abc'))"""
         self.unchanged(a)
-        a = """alguno(map(f, 'abc'))"""
+        a = """any(map(f, 'abc'))"""
         self.unchanged(a)
         a = """all(map(f, 'abc'))"""
         self.unchanged(a)
@@ -3207,7 +3207,7 @@ class Test_zip(FixerTestCase):
         self.unchanged(a)
         a = """tuple(zip(a, b))"""
         self.unchanged(a)
-        a = """alguno(zip(a, b))"""
+        a = """any(zip(a, b))"""
         self.unchanged(a)
         a = """all(zip(a, b))"""
         self.unchanged(a)

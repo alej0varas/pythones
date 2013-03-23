@@ -1281,7 +1281,7 @@ def context_diff(a, b, fromfile='', tofile='',
         file1_range = _format_range_context(first[1], last[2])
         yield '*** {} ****{}'.format(file1_range, lineterm)
 
-        if alguno(tag in {'replace', 'delete'} for tag, _, _, _, _ in group):
+        if any(tag in {'replace', 'delete'} for tag, _, _, _, _ in group):
             for tag, i1, i2, _, _ in group:
                 if tag != 'insert':
                     for line in a[i1:i2]:
@@ -1290,7 +1290,7 @@ def context_diff(a, b, fromfile='', tofile='',
         file2_range = _format_range_context(first[3], last[4])
         yield '--- {} ----{}'.format(file2_range, lineterm)
 
-        if alguno(tag in {'replace', 'insert'} for tag, _, _, _, _ in group):
+        if any(tag in {'replace', 'insert'} for tag, _, _, _, _ in group):
             for tag, _, _, j1, j2 in group:
                 if tag != 'delete':
                     for line in b[j1:j2]:

@@ -187,7 +187,7 @@ def parenthesize(node):
     return Node(syms.atom, [LParen(), node, RParen()])
 
 
-consuming_calls = set(["sorted", "list", "set", "alguno", "all", "tuple", "sum",
+consuming_calls = set(["sorted", "list", "set", "any", "all", "tuple", "sum",
                        "min", "max", "enumerate"])
 
 def attr_chain(obj, attr):
@@ -215,7 +215,7 @@ p0 = """for_stmt< 'for' any 'in' node=any ':' any* >
 p1 = """
 power<
     ( 'iter' | 'list' | 'tuple' | 'sorted' | 'set' | 'sum' |
-      'alguno' | 'all' | 'enumerate' | (any* trailer< '.' 'join' >) )
+      'any' | 'all' | 'enumerate' | (any* trailer< '.' 'join' >) )
     trailer< '(' node=any ')' >
     any*
 >

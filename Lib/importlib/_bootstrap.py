@@ -1152,7 +1152,7 @@ class ExtensionFileLoader:
     def is_package(self, fullname):
         """Return True if the extension module is a package."""
         file_name = _path_split(self.path)[1]
-        return alguno(file_name == '__init__' + suffix
+        return any(file_name == '__init__' + suffix
                    for suffix in EXTENSION_SUFFIXES)
 
     def get_code(self, fullname):

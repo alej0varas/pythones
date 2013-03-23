@@ -207,7 +207,7 @@ class TraceCallbackTests(unittest.TestCase):
         con.set_trace_callback(trace)
         con.execute("create table foo(a, b)")
         self.assertTrue(traced_statements)
-        self.assertTrue(alguno("create table foo" in stmt for stmt in traced_statements))
+        self.assertTrue(any("create table foo" in stmt for stmt in traced_statements))
 
     def CheckClearTraceCallback(self):
         """
@@ -238,7 +238,7 @@ class TraceCallbackTests(unittest.TestCase):
         # (cf. http://www.sqlite.org/draft/releaselog/3_6_21.html)
         con.execute('insert into foo(x) values ("%s")' % unicode_value)
         con.commit()
-        self.assertTrue(alguno(unicode_value in stmt for stmt in traced_statements),
+        self.assertTrue(any(unicode_value in stmt for stmt in traced_statements),
                         "Unicode data %s garbled in trace callback: %s"
                         % (ascii(unicode_value), ', '.join(map(ascii, traced_statements))))
 

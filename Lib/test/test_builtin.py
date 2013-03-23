@@ -187,19 +187,19 @@ class BuiltinTest(unittest.TestCase):
         self.assertEqual(all(x > 42 for x in S), False)
 
     def test_any(self):
-        self.assertEqual(alguno([None, None, None]), False)
-        self.assertEqual(alguno([None, 4, None]), True)
-        self.assertRaises(RuntimeError, alguno, [None, TestFailingBool(), 6])
-        self.assertRaises(RuntimeError, alguno, TestFailingIter())
-        self.assertRaises(TypeError, alguno, 10)               # Non-iterable
-        self.assertRaises(TypeError, alguno)                   # No args
-        self.assertRaises(TypeError, alguno, [2, 4, 6], [])    # Too many args
-        self.assertEqual(alguno([]), False)                    # Empty iterator
-        self.assertEqual(alguno([1, TestFailingBool()]), True) # Short-circuit
+        self.assertEqual(any([None, None, None]), False)
+        self.assertEqual(any([None, 4, None]), True)
+        self.assertRaises(RuntimeError, any, [None, TestFailingBool(), 6])
+        self.assertRaises(RuntimeError, any, TestFailingIter())
+        self.assertRaises(TypeError, any, 10)               # Non-iterable
+        self.assertRaises(TypeError, any)                   # No args
+        self.assertRaises(TypeError, any, [2, 4, 6], [])    # Too many args
+        self.assertEqual(any([]), False)                    # Empty iterator
+        self.assertEqual(any([1, TestFailingBool()]), True) # Short-circuit
         S = [40, 60, 30]
-        self.assertEqual(alguno(x > 42 for x in S), True)
+        self.assertEqual(any(x > 42 for x in S), True)
         S = [10, 20, 30]
-        self.assertEqual(alguno(x > 42 for x in S), False)
+        self.assertEqual(any(x > 42 for x in S), False)
 
     def test_ascii(self):
         self.assertEqual(ascii(''), '\'\'')

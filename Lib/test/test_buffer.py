@@ -434,7 +434,7 @@ def verify_structure(memlen, itemsize, ndim, shape, strides, offset):
         return False
     if offset < 0 or offset+itemsize > memlen:
         return False
-    if alguno(v % itemsize for v in strides):
+    if any(v % itemsize for v in strides):
         return False
 
     if ndim <= 0:

@@ -665,7 +665,7 @@ class PdbTestCase(unittest.TestCase):
         self.addCleanup(support.unlink, 'bar.py')
         stdout, stderr = self.run_pdb(script, commands)
         self.assertTrue(
-            alguno('main.py(5)foo()->None' in l for l in stdout.splitlines()),
+            any('main.py(5)foo()->None' in l for l in stdout.splitlines()),
             'Fail to step into the caller after a return')
 
     def test_issue13210(self):

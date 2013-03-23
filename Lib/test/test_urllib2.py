@@ -1391,7 +1391,7 @@ class HandlerTests(unittest.TestCase):
 class MiscTests(unittest.TestCase):
 
     def opener_has_handler(self, opener, handler_class):
-        self.assertTrue(alguno(h.__class__ == handler_class
+        self.assertTrue(any(h.__class__ == handler_class
                             for h in opener.handlers))
 
     def test_build_opener(self):

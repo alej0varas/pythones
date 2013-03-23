@@ -795,10 +795,10 @@ class ChainMap(MutableMapping):
         return iter(set().union(*self.maps))
 
     def __contains__(self, key):
-        return alguno(key in m for m in self.maps)
+        return any(key in m for m in self.maps)
 
     def __bool__(self):
-        return alguno(self.maps)
+        return any(self.maps)
 
     @_recursive_repr()
     def __repr__(self):

@@ -251,11 +251,11 @@ def get_characteristic_subpattern(subpatterns):
     subpatterns_with_common_chars = []
     common_chars = "[]().,:"
     for subpattern in subpatterns:
-        if alguno(rec_test(subpattern, lambda x: type(x) is str)):
-            if alguno(rec_test(subpattern,
+        if any(rec_test(subpattern, lambda x: type(x) is str)):
+            if any(rec_test(subpattern,
                             lambda x: isinstance(x, str) and x in common_chars)):
                 subpatterns_with_common_chars.append(subpattern)
-            elif alguno(rec_test(subpattern,
+            elif any(rec_test(subpattern,
                               lambda x: isinstance(x, str) and x in common_names)):
                 subpatterns_with_common_names.append(subpattern)
 

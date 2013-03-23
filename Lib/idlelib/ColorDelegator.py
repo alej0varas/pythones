@@ -8,27 +8,27 @@ from idlelib.configHandler import idleConf
 
 DEBUG = False
 
-def alguno(name, alternates):
+def any(name, alternates):
     "Return a named group pattern matching list of alternates."
     return "(?P<%s>" % name + "|".join(alternates) + ")"
 
 def make_pat():
-    kw = r"\b" + alguno("KEYWORD", keyword.kwlist) + r"\b"
+    kw = r"\b" + any("KEYWORD", keyword.kwlist) + r"\b"
     builtinlist = [str(name) for name in dir(builtins)
                                         if not name.startswith('_') and \
                                         name not in keyword.kwlist]
     # self.file = open("file") :
     # 1st 'file' colorized normal, 2nd as builtin, 3rd as string
-    builtin = r"([^.'\"\\#]\b|^)" + alguno("BUILTIN", builtinlist) + r"\b"
-    comment = alguno("COMMENT", [r"#[^\n]*"])
+    builtin = r"([^.'\"\\#]\b|^)" + any("BUILTIN", builtinlist) + r"\b"
+    comment = any("COMMENT", [r"#[^\n]*"])
     stringprefix = r"(\br|u|ur|R|U|UR|Ur|uR|b|B|br|Br|bR|BR|rb|rB|Rb|RB)?"
     sqstring = stringprefix + r"'[^'\\\n]*(\\.[^'\\\n]*)*'?"
     dqstring = stringprefix + r'"[^"\\\n]*(\\.[^"\\\n]*)*"?'
     sq3string = stringprefix + r"'''[^'\\]*((\\.|'(?!''))[^'\\]*)*(''')?"
     dq3string = stringprefix + r'"""[^"\\]*((\\.|"(?!""))[^"\\]*)*(""")?'
-    string = alguno("STRING", [sq3string, dq3string, sqstring, dqstring])
+    string = any("STRING", [sq3string, dq3string, sqstring, dqstring])
     return kw + "|" + builtin + "|" + comment + "|" + string +\
-           "|" + alguno("SYNC", [r"\n"])
+           "|" + any("SYNC", [r"\n"])
 
 prog = re.compile(make_pat(), re.S)
 idprog = re.compile(r"\s+(\w+)", re.S)

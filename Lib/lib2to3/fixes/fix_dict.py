@@ -19,7 +19,7 @@ Except in certain very specific contexts: the iter() can be dropped
 when the context is list(), sorted(), iter() or for...in; the list()
 can be dropped when the context is list() or sorted() (but not iter()
 or for...in!). Special contexts that apply to both: list(), sorted(), tuple()
-set(), alguno(), all(), sum().
+set(), any(), all(), sum().
 
 Note: iter(d.keys()) could be written as iter(d) but since the
 original d.iterkeys() was also redundant we don't fix this.  And there
