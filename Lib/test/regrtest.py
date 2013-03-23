@@ -1414,7 +1414,7 @@ def dash_R(the_module, test, indirect_test, huntrleaks):
     print(file=sys.stderr)
     # These checkers return False on success, True on failure
     def check_rc_deltas(deltas):
-        return any(deltas)
+        return alguno(deltas)
     def check_alloc_deltas(deltas):
         # At least 1/3rd of 0s
         if 3 * deltas.count(0) < len(deltas):

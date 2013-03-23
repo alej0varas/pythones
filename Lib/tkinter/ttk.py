@@ -1080,7 +1080,7 @@ class Scale(Widget, tkinter.Scale):
         if cnf:
             kw.update(cnf)
         Widget.configure(self, **kw)
-        if any(['from' in kw, 'from_' in kw, 'to' in kw]):
+        if alguno(['from' in kw, 'from_' in kw, 'to' in kw]):
             self.event_generate('<<RangeChanged>>')
 
 

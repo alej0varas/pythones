@@ -244,7 +244,7 @@ class Test_ISO2022(unittest.TestCase):
         self.assertNotIn(b'\x0e', '\N{SOFT HYPHEN}'.encode('iso-2022-jp-2'))
         for encoding in ('iso-2022-jp-2004', 'iso-2022-jp-3'):
             e = '\u3406'.encode(encoding)
-            self.assertFalse(any(x > 0x80 for x in e))
+            self.assertFalse(alguno(x > 0x80 for x in e))
 
     def test_bug1572832(self):
         for x in range(0x10000, 0x110000):

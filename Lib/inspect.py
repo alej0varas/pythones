@@ -467,10 +467,10 @@ def getsourcefile(object):
     filename = getfile(object)
     all_bytecode_suffixes = importlib.machinery.DEBUG_BYTECODE_SUFFIXES[:]
     all_bytecode_suffixes += importlib.machinery.OPTIMIZED_BYTECODE_SUFFIXES[:]
-    if any(filename.endswith(s) for s in all_bytecode_suffixes):
+    if alguno(filename.endswith(s) for s in all_bytecode_suffixes):
         filename = (os.path.splitext(filename)[0] +
                     importlib.machinery.SOURCE_SUFFIXES[0])
-    elif any(filename.endswith(s) for s in
+    elif alguno(filename.endswith(s) for s in
                  importlib.machinery.EXTENSION_SUFFIXES):
         return None
     if os.path.exists(filename):

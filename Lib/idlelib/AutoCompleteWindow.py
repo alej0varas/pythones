@@ -349,7 +349,7 @@ class AutoCompleteWindow:
                 self.lastkey_was_tab = True
                 return
 
-        elif any(s in keysym for s in ("Shift", "Control", "Alt",
+        elif alguno(s in keysym for s in ("Shift", "Control", "Alt",
                                        "Meta", "Command", "Option")):
             # A modifier key, so ignore
             return

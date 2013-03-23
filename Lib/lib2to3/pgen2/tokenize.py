@@ -46,12 +46,12 @@ except NameError:
     bytes = str
 
 def group(*choices): return '(' + '|'.join(choices) + ')'
-def any(*choices): return group(*choices) + '*'
+def alguno(*choices): return group(*choices) + '*'
 def maybe(*choices): return group(*choices) + '?'
 
 Whitespace = r'[ \f\t]*'
 Comment = r'#[^\r\n]*'
-Ignore = Whitespace + any(r'\\\r?\n' + Whitespace) + maybe(Comment)
+Ignore = Whitespace + alguno(r'\\\r?\n' + Whitespace) + maybe(Comment)
 Name = r'[a-zA-Z_]\w*'
 
 Binnumber = r'0[bB][01]*'

@@ -428,7 +428,7 @@ class RefactoringTool(object):
         # obtain a set of candidate nodes
         match_set = self.BM.run(tree.leaves())
 
-        while any(match_set.values()):
+        while alguno(match_set.values()):
             for fixer in self.BM.fixers:
                 if fixer in match_set and match_set[fixer]:
                     #sort by depth; apply fixers from bottom(of the AST) to top

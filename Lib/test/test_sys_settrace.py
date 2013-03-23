@@ -212,8 +212,8 @@ def generator_function():
     finally:
         "finally"
 def generator_example():
-    # any() will leave the generator before its end
-    x = any(generator_function())
+    # alguno() will leave the generator before its end
+    x = alguno(generator_function())
 
     # the following lines were not traced
     for x in range(10):

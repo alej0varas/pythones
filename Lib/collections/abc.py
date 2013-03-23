@@ -79,7 +79,7 @@ class Iterable(metaclass=ABCMeta):
     @classmethod
     def __subclasshook__(cls, C):
         if cls is Iterable:
-            if any("__iter__" in B.__dict__ for B in C.__mro__):
+            if alguno("__iter__" in B.__dict__ for B in C.__mro__):
                 return True
         return NotImplemented
 
@@ -98,8 +98,8 @@ class Iterator(Iterable):
     @classmethod
     def __subclasshook__(cls, C):
         if cls is Iterator:
-            if (any("__next__" in B.__dict__ for B in C.__mro__) and
-                any("__iter__" in B.__dict__ for B in C.__mro__)):
+            if (alguno("__next__" in B.__dict__ for B in C.__mro__) and
+                alguno("__iter__" in B.__dict__ for B in C.__mro__)):
                 return True
         return NotImplemented
 
@@ -128,7 +128,7 @@ class Sized(metaclass=ABCMeta):
     @classmethod
     def __subclasshook__(cls, C):
         if cls is Sized:
-            if any("__len__" in B.__dict__ for B in C.__mro__):
+            if alguno("__len__" in B.__dict__ for B in C.__mro__):
                 return True
         return NotImplemented
 
@@ -144,7 +144,7 @@ class Container(metaclass=ABCMeta):
     @classmethod
     def __subclasshook__(cls, C):
         if cls is Container:
-            if any("__contains__" in B.__dict__ for B in C.__mro__):
+            if alguno("__contains__" in B.__dict__ for B in C.__mro__):
                 return True
         return NotImplemented
 
@@ -160,7 +160,7 @@ class Callable(metaclass=ABCMeta):
     @classmethod
     def __subclasshook__(cls, C):
         if cls is Callable:
-            if any("__call__" in B.__dict__ for B in C.__mro__):
+            if alguno("__call__" in B.__dict__ for B in C.__mro__):
                 return True
         return NotImplemented
 

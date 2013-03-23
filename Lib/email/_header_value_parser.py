@@ -324,7 +324,7 @@ class TokenList(list):
             try:
                 str(part).encode('us-ascii')
             except UnicodeEncodeError:
-                if any(isinstance(x, errors.UndecodableBytesDefect)
+                if alguno(isinstance(x, errors.UndecodableBytesDefect)
                         for x in part.all_defects):
                     charset = 'unknown-8bit'
                 else:
@@ -391,7 +391,7 @@ class UnstructuredTokenList(TokenList):
     token_type = 'unstructured'
 
     def _fold(self, folded):
-        if any(x.token_type=='encoded-word' for x in self):
+        if alguno(x.token_type=='encoded-word' for x in self):
             return self._fold_encoded(folded)
         # Here we can have either a pure ASCII string that may or may not
         # have surrogateescape encoded bytes, or a unicode string.
@@ -402,7 +402,7 @@ class UnstructuredTokenList(TokenList):
             try:
                 str(part).encode('us-ascii')
             except UnicodeEncodeError:
-                if any(isinstance(x, errors.UndecodableBytesDefect)
+                if alguno(isinstance(x, errors.UndecodableBytesDefect)
                        for x in part.all_defects):
                     charset = 'unknown-8bit'
                 else:
@@ -484,7 +484,7 @@ class Phrase(TokenList):
             try:
                 str(part).encode('us-ascii')
             except UnicodeEncodeError:
-                if any(isinstance(x, errors.UndecodableBytesDefect)
+                if alguno(isinstance(x, errors.UndecodableBytesDefect)
                         for x in part.all_defects):
                     charset = 'unknown-8bit'
                 else:
@@ -2125,7 +2125,7 @@ def get_mailbox(value):
         except errors.HeaderParseError:
             raise errors.HeaderParseError(
                 "expected mailbox but found '{}'".format(value))
-    if any(isinstance(x, errors.InvalidHeaderDefect)
+    if alguno(isinstance(x, errors.InvalidHeaderDefect)
                        for x in token.all_defects):
         mailbox.token_type = 'invalid-mailbox'
     mailbox.append(token)

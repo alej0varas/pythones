@@ -630,7 +630,7 @@ class FieldStorage:
         """Dictionary style __contains__ method."""
         if self.list is None:
             raise TypeError("not indexable")
-        return any(item.name == key for item in self.list)
+        return alguno(item.name == key for item in self.list)
 
     def __len__(self):
         """Dictionary style len(x) support."""

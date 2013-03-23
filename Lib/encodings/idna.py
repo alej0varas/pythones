@@ -47,7 +47,7 @@ def nameprep(label):
             # This is table C.8, which was already checked
             # 2) If a string contains any RandALCat character, the string
             # MUST NOT contain any LCat character.
-            if any(stringprep.in_table_d2(x) for x in label):
+            if alguno(stringprep.in_table_d2(x) for x in label):
                 raise UnicodeError("Violation of BIDI requirement 2")
 
             # 3) If a string contains any RandALCat character, a

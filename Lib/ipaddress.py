@@ -1793,7 +1793,7 @@ class IPv6Address(_BaseV6, _BaseAddress):
                              IPv6Network('F000::/5'), IPv6Network('F800::/6'),
                              IPv6Network('FE00::/9')]
 
-        return any(self in x for x in reserved_networks)
+        return alguno(self in x for x in reserved_networks)
 
     @property
     def is_link_local(self):

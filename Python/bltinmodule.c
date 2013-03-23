@@ -2345,7 +2345,7 @@ static PyMethodDef builtin_methods[] = {
     {"__import__",      (PyCFunction)builtin___import__, METH_VARARGS | METH_KEYWORDS, import_doc},
     {"abs",             builtin_abs,        METH_O, abs_doc},
     {"all",             builtin_all,        METH_O, all_doc},
-    {"any",             builtin_any,        METH_O, any_doc},
+    {"alguno",             builtin_any,        METH_O, any_doc},
     {"ascii",           builtin_ascii,      METH_O, ascii_doc},
     {"bin",             builtin_bin,        METH_O, bin_doc},
     {"callable",        builtin_callable,   METH_O, callable_doc},
