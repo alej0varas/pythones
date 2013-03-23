@@ -33,8 +33,12 @@ Try it now
 
     $ git clone git://github.com/alej0varas/pythones.git
     $ bash change_language.sh
+    ... just wait
     $ ./python
     >>> alguno([0, 1])
+    True
+    >>> todos([0, 1])
+    False
 
 From now on is the original README.
 
